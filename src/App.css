@@ -1,0 +1,91 @@
+/* src/App.css */
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5; /* Light gray background */
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #205a56; /* Dark teal background */
+  padding: 10px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  margin-right: 20px;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #ffd700; /* Change the color on hover */
+}
+
+.App {
+  text-align: center;
+  background-color: white; /* White background */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 60px; /* Adjust margin to accommodate the navbar height */
+}
+
+.welcome-container {
+  margin-top: 30px;
+}
+
+.get-started-button {
+  background-color: #205a56; /* Dark teal background */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.get-started-button:hover {
+  background-color: #15493f; /* Darken the color on hover */
+}
+
+/* Add stroke to heading */
+.App-header h1 {
+  color: #205a56;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Adjust values as needed */
+}
+
+/* Add stroke to paragraph */
+.App-header p {
+  color: #205a56;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Adjust values as needed */
+}
