@@ -1,4 +1,3 @@
-// src/App.js
 import React from "react";
 
 import "./App.css";
@@ -15,6 +14,14 @@ function App() {
             </li>
             <li>
               <a href="#blog">Blog</a>
+            </li>
+            <li className="dropdown">
+              <a href="#services">Others</a>
+              <div className="dropdown-content">
+                <a href="#service1">Other 1</a>
+                <a href="#service2">Other 2</a>
+                <a href="#service3">Other 3</a>
+              </div>
             </li>
             <li>
               <a href="#contact">Contact Us</a>
