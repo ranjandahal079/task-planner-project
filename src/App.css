@@ -1,5 +1,3 @@
-/* src/App.css */
-
 body {
   margin: 0;
   padding: 0;
@@ -56,7 +54,7 @@ nav ul li a:hover {
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-top: 60px; 
+  margin-top: 60px; /* Adjust margin to accommodate the navbar height */
 }
 
 .welcome-container {
@@ -78,16 +76,16 @@ nav ul li a:hover {
   background-color: #15493f; /* Darken the color on hover */
 }
 
-/*stroke to heading */
+/* Add stroke to heading */
 .App-header h1 {
   color: #205a56;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); 
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Adjust values as needed */
 }
 
-/*stroke to paragraph */
+/* Add stroke to paragraph */
 .App-header p {
   color: #205a56;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Adjust values as needed */
 }
 
 .dropdown {

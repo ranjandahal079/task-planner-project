@@ -1,23 +1,25 @@
-import React from "react";
-import Navbar from "./components/Navbar"; // Importing the Navbar component
+import React, { useState } from "react";
+import Navbar from "./components/Navbar";
+import TaskList from "./components/TaskList";
+import LandingPage from "./components/LandingPage";
 import "./App.css";
 
 function App() {
+  const [started, setStarted] = useState(false);
+
+  const handleGetStarted = () => {
+    setStarted(true);
+  };
+
   return (
     <div>
-      <Navbar /> {/* Using the Navbar component */}
+      <Navbar />
       <div className="App">
-        <header className="App-header">
-          <h1>Welcome to Task Planner</h1>
-          <p>Start planning your tasks efficiently!</p>
-        </header>
-        <main>
-          {/* Task Planner Components will go here */}
-          <div className="welcome-container">
-            <h2>Get Started</h2>
-            <button className="get-started-button">Get Started</button>
-          </div>
-        </main>
+        {!started ? (
+          <LandingPage onGetStarted={handleGetStarted} />
+        ) : (
+          <TaskList />
+        )}
       </div>
     </div>
   );
