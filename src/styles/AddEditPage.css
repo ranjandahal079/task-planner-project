@@ -1,0 +1,81 @@
+/* styles/AddEditPage.css */
+
+.add-edit-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .add-edit-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .add-edit-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .add-edit-form div {
+    margin-bottom: 15px;
+  }
+  
+  .add-edit-form label {
+    font-weight: bold;
+  }
+  
+  .add-edit-form input[type="text"],
+  .add-edit-form textarea,
+  .add-edit-form select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .add-edit-form button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-edit-form button[type="submit"] {
+    background-color: #205a56;
+    color: #fff;
+  }
+  
+  .add-edit-form button[type="submit"]:hover {
+    background-color: #15493f;
+  }
+  
+  .add-edit-form button[type="button"] {
+    background-color: #ccc;
+    color: #000;
+  }
+  
+  .add-edit-form button[type="button"]:hover {
+    background-color: #bbb;
+  }
+  .back-button {
+    background-color: #666666;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .back-button:hover {
+    background-color: #2aae91;
+  }
+  
+  
+
+  

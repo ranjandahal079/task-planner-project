@@ -1,10 +1,8 @@
+// LandingPage.jsx
 import React from "react";
+import { Link } from "react-router-dom";
 
-function LandingPage({ onGetStarted }) {
-  const handleGetStarted = () => {
-    onGetStarted();
-  };
-
+function LandingPage() {
   return (
     <div>
       <header>
@@ -13,9 +11,9 @@ function LandingPage({ onGetStarted }) {
       </header>
       <main>
         <div className="welcome-container">
-          <button className="get-started-button" onClick={handleGetStarted}>
+          <Link className="get-started-button" to="/home">
             Get Started
-          </button>
+          </Link>
         </div>
       </main>
     </div>

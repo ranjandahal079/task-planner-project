@@ -1,0 +1,92 @@
+/* src/styles/HomePage.css */
+
+.home-container {
+  text-align: center;
+}
+
+.home-heading {
+  color: #205a56;
+  margin-bottom: 30px;
+}
+
+.filter-create-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.filter-container {
+  flex-grow: 1;
+}
+
+.filter-dropdown {
+  width: 150px;
+}
+
+.create-task-container {
+  margin-left: 20px;
+}
+
+.create-task-button {
+  background-color: #205a56;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.create-task-button:hover {
+  background-color: #15493f;
+}
+
+.task-manager-container {
+  margin-top: 50px;
+}
+
+.task-list-heading {
+  color: #205a56;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.task-list-container {
+  border: 1px solid #205a56;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.task-item {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-item:last-child {
+  margin-bottom: 0;
+}
+
+.task-item button {
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.task-item button:hover {
+  filter: brightness(85%);
+}
+
+/* Style completed tasks */
+.task-item.completed {
+  text-decoration: line-through;
+  color: #ccc;
+}
