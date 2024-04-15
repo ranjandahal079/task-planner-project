@@ -6,7 +6,7 @@ const ConfirmationModal = ({ isOpen, onConfirm, onCancel }) => {
   return (
     <div className="modal-background">
       <div className="modal">
-        <h3>Are you sure you want to delete this task?</h3>
+        <h3>Are you sure you want to delete this task or not?</h3>
         <div>
           <button onClick={onConfirm}>Yes</button>
           <button onClick={onCancel}>Cancel</button>
