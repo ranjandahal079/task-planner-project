@@ -10,8 +10,10 @@ const HomePage = () => {
   const [tasks, setTasks] = useState([]);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [deletingTaskId, setDeletingTaskId] = useState(null);
-  const [filterBy, setFilterBy] = useState("priority");
+  const [filterBy, setFilterBy] = useState(""); // Initialize with empty string
   const [selectedTask, setSelectedTask] = useState(null);
+  const [isPriorityHovered, setIsPriorityHovered] = useState(false); // Track whether the Priority option is hovered
+  const [selectedPriority, setSelectedPriority] = useState(""); // State to store selected priority
   const history = useHistory();
 
   useEffect(() => {
@@ -66,17 +68,35 @@ const HomePage = () => {
   };
 
   const filterTasks = () => {
-    const filters = {
-      priority: tasks.sort((a, b) => a.priority.localeCompare(b.priority)),
-      deadline: tasks.sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate)),
-      unfinished: tasks.filter((task) => !task.completed),
-      newest: tasks.reverse(),
-    };
-    return filters[filterBy] || tasks;
+    // Apply selected filter to tasks array
+    switch (filterBy) {
+      case "priority":
+        return tasks.filter((task) => task.priority.toLowerCase() === selectedPriority.toLowerCase());
+      case "deadline":
+        return tasks.sort((a, b) => {
+          const diffA = daysFromToday(a.dueDate);
+          const diffB = daysFromToday(b.dueDate);
+          return diffA - diffB;
+        });
+      case "unfinished":
+        return tasks.filter((task) => !task.completed);
+      case "newest":
+        return tasks.slice().reverse(); // Create a copy of tasks and reverse it
+      default:
+        return tasks;
+    }
   };
 
   const handleFilterChange = (e) => {
     setFilterBy(e.target.value);
+    // Reset the Priority hover state when a new filter is selected
+    setIsPriorityHovered(false);
+    setSelectedPriority(""); // Reset selectedPriority when changing filter
+  };
+
+  const handlePriorityFilter = (priority) => {
+    setSelectedPriority(priority);
+    setFilterBy("priority");
   };
 
   const handleTaskClick = (task) => {
@@ -99,11 +119,20 @@ const HomePage = () => {
             value={filterBy}
             onChange={handleFilterChange}
           >
+            <option value="">Select</option>
             <option value="priority">Priority</option>
             <option value="deadline">Deadline</option>
             <option value="unfinished">Unfinished</option>
             <option value="newest">Newest</option>
           </select>
+          {/* Priority Options */}
+          {filterBy === "priority" && (
+            <div className="priority-options">
+              <button onClick={() => handlePriorityFilter("High")}>High</button>
+              <button onClick={() => handlePriorityFilter("Medium")}>Medium</button>
+              <button onClick={() => handlePriorityFilter("Low")}>Low</button>
+            </div>
+          )}
         </div>
         <div className="create-task-container">
           <Link to="/add-task">
@@ -114,45 +143,47 @@ const HomePage = () => {
       <div className="task-manager-container">
         <h2 className="task-list-heading">Task List</h2>
         <div className="task-list-container">
-          {filterTasks().map((task) => (
-            <div
-              className={`task-item ${task.completed ? "completed" : ""}`}
-              key={task.id}
-              onClick={() => handleTaskClick(task)}
-            >
-              <input
-                type="checkbox"
-                checked={task.completed}
-                onChange={() => toggleTaskCompletion(task.id)}
-                onClick={(e) => e.stopPropagation()}
-              />
-              <div>
-                <h3>{task.title}</h3>
-                <p>{daysToDisplay(task.dueDate)}</p>
-              </div>
-              <div>
-                <button
-                  style={{ backgroundColor: "#ff5a5f", color: "white" }}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleDeleteTask(task.id);
-                  }}
-                  disabled={task.completed}
-                >
-                  Delete
-                </button>
-                <button
-                  style={{ backgroundColor: "#007bff", color: "white" }}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleEditTask(task.id);
-                  }}
-                  disabled={task.completed}
-                >
-                  Edit
-                </button>
-              </div>
-            </div>
+          {filterTasks().map((task, index) => (
+           <div className={`task-item ${task.completed ? "completed" : ""}`} key={task.id}>
+           <div className="task-checkbox">
+             <input
+               type="checkbox"
+               checked={task.completed}
+               onChange={() => toggleTaskCompletion(task.id)}
+               onClick={(e) => e.stopPropagation()}
+             />
+           </div>
+           <div className="task-content">
+             <h3 className={`task-title ${task.completed ? 'completed' : ''}`} onClick={() => handleTaskClick(task)}>
+               {task.title}
+             </h3>
+             <p>{daysToDisplay(task.dueDate)}</p>
+             {/* Separate div for priority */}
+             <div className="task-priority">
+               <p>Priority: {task.priority}</p>
+             </div>
+           </div>
+           <div className="task-actions">
+             <button
+               onClick={(e) => {
+                 e.stopPropagation();
+                 handleEditTask(task.id);
+               }}
+               disabled={task.completed}
+             >
+               Edit
+             </button>
+             <button
+               onClick={(e) => {
+                 e.stopPropagation();
+                 handleDeleteTask(task.id);
+               }}
+               disabled={task.completed}
+             >
+               Delete
+             </button>
+           </div>
+         </div>
           ))}
         </div>
       </div>
@@ -163,7 +194,11 @@ const HomePage = () => {
           onCancel={cancelDeleteTask}
         />
       )}
-      <TaskDetailModal isOpen={!!selectedTask} task={selectedTask} onClose={handleCloseModal} />
+      <TaskDetailModal
+        isOpen={!!selectedTask}
+        task={selectedTask}
+        onClose={handleCloseModal}
+      />
     </div>
   );
 };

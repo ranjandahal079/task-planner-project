@@ -1,8 +1,10 @@
+// App.jsx
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import LandingPage from "./components/LandingPage";
+
 import HomePage from "./pages/HomePage";
 import AddEditPage from "./pages/AddEditPage";
 

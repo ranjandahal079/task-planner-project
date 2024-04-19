@@ -18,7 +18,6 @@ const AddEditPage = () => {
     const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
     setTasks(savedTasks);
 
-    // Check if taskId is provided in the URL
     if (taskId) {
       // If taskId is provided, it means we're editing an existing task
       const taskToEdit = savedTasks.find((task) => task.id === parseInt(taskId));
@@ -40,14 +39,14 @@ const AddEditPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isEditing) {
-      const updatedTasks = tasks.map((t) =>
-        t.id === parseInt(taskId) ? { ...t, ...task } : t
+      const updatedTasks = tasks.map((taskItem) =>
+        taskItem.id === parseInt(taskId) ? { ...taskItem, ...task } : taskItem
       );
       setTasks(updatedTasks);
       localStorage.setItem("tasks", JSON.stringify(updatedTasks));
       setIsEditing(false);
     } else {
-      const newTask = { ...task, id: Date.now() };
+      const newTask = { ...task, id: tasks.length + 1 };
       const updatedTasks = [...tasks, newTask];
       setTasks(updatedTasks);
       localStorage.setItem("tasks", JSON.stringify(updatedTasks));
@@ -60,7 +59,7 @@ const AddEditPage = () => {
   };
 
   const confirmDeleteTask = () => {
-    const updatedTasks = tasks.filter((t) => t.id !== parseInt(taskId));
+    const updatedTasks = tasks.filter((taskItem) => taskItem.id !== parseInt(taskId));
     setTasks(updatedTasks);
     localStorage.setItem("tasks", JSON.stringify(updatedTasks));
     setIsModalOpen(false);
@@ -105,10 +104,10 @@ const AddEditPage = () => {
             value={task.priority}
             onChange={handleInputChange}
           >
-            <option value="Highest">Highest</option>
-            <option value="High">High</option>
-            <option value="Medium">Medium</option>
-            <option value="Low">Low</option>
+            <option value="highest">Select</option>
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
           </select>
         </div>
         <div>

@@ -8,11 +8,8 @@ function Navbar() {
       <span className="navbar-brand">Machnet Task Planner Project</span>
       <nav>
         <ul>
-          <li>
+          <li className="nav-home">
             <Link to="/">Home</Link>
-          </li>
-          <li>
-          <a>Task</a>
           </li>
           <li className="dropdown">
             <a href="#others">Others</a>
