@@ -1,0 +1,74 @@
+/* AddEditPage.css */
+
+/* Container for AddEditPage */
+.add-edit-container {
+  max-width: 600px; /* Limit width for better readability */
+  margin: 0 auto; /* Center the container horizontally */
+  padding: 40px; /* Add padding for spacing */
+  background-color: #ffffff; /* White background */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+}
+
+/* Title */
+.add-edit-container h1 {
+  color: #205a56; /* Dark green text color */
+  margin-bottom: 20px; /* Add spacing below the title */
+  text-shadow: 0 0 10px rgba(32, 90, 86, 0.5)
+}
+
+/* Back button */
+.back-button {
+  background-color:  #b87df3; /* Dark green button color */
+  color: #ffffff; /* White text color */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-bottom: 20px; /* Add spacing below the button */
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.back-button:hover {
+  background-color: #451377; /* Darker green on hover */
+}
+
+/* Add/Edit Form */
+.add-edit-form div {
+  margin-bottom: 20px; /* Add spacing between form fields */
+}
+
+.add-edit-form label {
+  color: Black; /* Dark green text color */
+  font-weight: bold;
+}
+
+.add-edit-form input[type="text"],
+.add-edit-form textarea,
+.add-edit-form select,
+.add-edit-form input[type="date"] {
+  width: 100%; /* Take up full width of the container */
+  padding: 12px; /* Add padding for input fields */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 16px; /* Increase font size */
+}
+
+/* Submit and Delete buttons */
+.add-edit-form button {
+  background-color: #b87df3; /* Dark green button color */
+  color: #ffffff; /* White text color */
+  border: none;
+  border-radius: 5px;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-edit-form button[type="submit"] {
+  margin-right: 10px; /* Add spacing between buttons */
+}
+
+.add-edit-form button:hover {
+  background-color: #451377; /* Darker green on hover */
+}

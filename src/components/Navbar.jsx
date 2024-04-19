@@ -1,4 +1,6 @@
+// Navbar.jsx
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
@@ -6,23 +8,18 @@ function Navbar() {
       <span className="navbar-brand">Machnet Task Planner Project</span>
       <nav>
         <ul>
-          <li>
-            <a href="#home">Home</a>
-          </li>
-          <li>
-            <a href="#blog">Blog</a>
+          <li className="nav-home">
+            <Link to="/">Home</Link>
           </li>
           <li className="dropdown">
-            <a href="#services">Others</a>
+            <a href="#others">Others</a>
             <div className="dropdown-content">
               <a href="#service1">Other 1</a>
               <a href="#service2">Other 2</a>
               <a href="#service3">Other 3</a>
             </div>
           </li>
-          <li>
-            <a href="#contact">Contact Us</a>
-          </li>
+          {/* Add other links as needed */}
         </ul>
       </nav>
     </div>

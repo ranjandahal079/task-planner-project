@@ -1,0 +1,172 @@
+/* src/styles/HomePage.css */
+
+/* Ensure the body and HTML elements take up the full viewport height */
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+/* Apply styling to the home container */
+.home-container {
+  text-align: center;
+  padding: 50px 100px; /* Adjust padding */
+}
+
+.home-heading {
+  color: #205a56;
+  font-size: 50px;
+  
+}
+
+.filter-create-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Align items vertically */
+  margin-bottom: 30px; /* Increase margin for better separation */
+}
+
+.filter-container {
+  padding-left: 100px; /* Adjust padding */
+}
+
+.filter-dropdown {
+  width: 150px;
+  font-size: 0.8rem;
+  border: 1px solid #205a56; /* Add border */
+  border-radius: 5px; /* Add border radius */
+  padding: 5px; /* Adjust padding */
+  background-color: #fff; /* Set background color */
+  color: #205a56; /* Set text color */
+  outline: none; /* Remove outline */
+}
+
+.create-task-container {
+  margin-right: 100px;
+}
+
+.create-task-button {
+  background-color:  #b87df3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.create-task-button:hover {
+  background-color:  #451377;
+}
+
+.task-manager-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #205a56;
+}
+
+.task-manager-container {
+  padding: 0 100px; /* Adjust padding */
+  margin-top: 20px; /* Adjust margin */
+}
+
+.task-list-heading {
+  color: black;
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.task-list-container {
+  border: 1px solid #205a56;
+  border-radius: 5px;
+  background-color: linear-gradient(to right, #83d9ef, white);
+}
+
+.task-item {
+  margin-bottom: 5px;
+  padding-left: 13px;
+  padding-right: 130px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  transition: transform 0.3s ease;
+  
+}
+
+.task-content {
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+
+.task-checkbox {
+  width: 25px;
+  height: 25px;
+  padding-right: 25px; 
+}
+
+
+.task-title {
+  margin: 0 10px;
+  flex-grow: 1; /* Allow title to grow to fill available space */
+}
+
+.task-actions {
+  display: flex;
+  padding-left: 100px;
+}
+
+.task-actions button {
+  margin-left: 50px;
+}
+
+.task-item:last-child {
+  margin-bottom: 0;
+}
+
+.task-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.task-title {
+  color: black;
+  padding-top: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 20px; /* Add margin to separate from buttons */
+  cursor: pointer; /* Change cursor to pointer */
+  text-decoration: underline; /* Underline text */
+}
+
+.task-title:hover {
+  color: #21bcf0; /* Change color on hover */
+}
+
+.task-title.completed {
+  text-decoration: line-through;
+}
+
+.task-item button {
+  background-color: #b87df3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px; /* Adjust button padding */
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.task-item button:hover {
+  background-color: #451377;
+}
+
+.task-priority {
+  margin-left:100px; /* Push priority to the right */
+}
+
